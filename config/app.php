@@ -14,6 +14,22 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'version' => '1.5.7',
+    'debug_blacklist' => [
+        '_COOKIE' => array_keys($_COOKIE),
+        '_SERVER' => array_keys($_SERVER),
+        '_ENV' => array_keys($_ENV),
+    ],
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | SETUP
+    |--------------------------------------------------------------------------
+    |
+    */
+    'ignore_subdomains' => explode(',', env('IGNORE_SUBDOMAINS', 'www')),
+
 
     /*
     |--------------------------------------------------------------------------
@@ -27,6 +43,21 @@ return [
     */
 
     'env' => env('APP_ENV', 'production'),
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Type
+    |--------------------------------------------------------------------------
+    |
+    | To organize the multiple projects into single git repo, we user projecttype
+    | ft
+    | qrsaas
+    |
+    */
+
+    'isqrsaas' => "qrsaas",
+
 
     /*
     |--------------------------------------------------------------------------
@@ -67,7 +98,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => env('TIME_ZONE', 'UTC'),
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +111,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => strtolower(env('APP_LOCALE', 'en')),
 
     /*
     |--------------------------------------------------------------------------
@@ -161,11 +192,13 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+        Akaunting\Money\Provider::class,
+
 
         /*
          * Package Service Providers...
          */
-
         /*
          * Application Service Providers...
          */
@@ -225,7 +258,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        //'Image' => Intervention\Image\Facades\Image::class
+        'Image' => Intervention\Image\ImageManagerStatic::class,
     ],
 
 ];

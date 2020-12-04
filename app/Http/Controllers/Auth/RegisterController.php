@@ -7,6 +7,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Str;
+use App\Notifications\WelcomeNotification;
+
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -48,11 +52,17 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        $rules=[
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone' => ['required', 'string', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'min:8'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        ];
+        if(env('ENABLE_BIRTH_DATE_ON_REGISTER',false)&&env('MINIMUM_YEARS_TO_REGISTER',true)){
+            $rules['birth_date']='required|date|date_format:Y-m-d|before:-'.env('MINIMUM_YEARS_TO_REGISTER',18).' years';
+        }
+        //dd($rules);
+        return Validator::make($data, $rules );
     }
 
     /**
@@ -63,10 +73,31 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+       //dd($data);
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
+            'api_token' => Str::random(80),
+            'birth_date' => isset($data['birth_date'])?$data['birth_date']:""
         ]);
+
+
+
+        $user->assignRole('client');
+
+        //Send welcome email
+        $user->notify(new WelcomeNotification($user));
+
+        return $user;
+    }
+    protected function registered(Request $request, User $user)
+    {
+//        if(env('ENABLE_SMS_VERIFICATION',false)){
+//            $user->callToVerify();
+//        }
+        return redirect($this->redirectPath());
     }
 }

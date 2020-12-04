@@ -19,8 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62cd6920-0b37-4f3e-afaf-c5601ea8b8c1" name="Default Changelist" comment="Laravel - Created">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="62cd6920-0b37-4f3e-afaf-c5601ea8b8c1" name="Default Changelist" comment="edited gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +41,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/database/migrations" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Erlang External Tools" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -54,7 +54,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607057450528</updated>
-      <workItem from="1607057451704" duration="980000" />
+      <workItem from="1607057451704" duration="2883000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore - Updated">
       <created>1607057615919</created>
@@ -70,7 +70,42 @@
       <option name="project" value="LOCAL" />
       <updated>1607057845406</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="installed php packages">
+      <created>1607064118723</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1607064118723</updated>
+    </task>
+    <task id="LOCAL-00004" summary="created composer.lock">
+      <created>1607064216008</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1607064216008</updated>
+    </task>
+    <task id="LOCAL-00005" summary="installed frontend packages">
+      <created>1607065146347</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1607065146347</updated>
+    </task>
+    <task id="LOCAL-00006" summary="small changes">
+      <created>1607065169464</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1607065169464</updated>
+    </task>
+    <task id="LOCAL-00007" summary="edited gitignore">
+      <created>1607065241433</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1607065241433</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -90,16 +125,26 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="gitignore - Updated" />
     <MESSAGE value="Laravel - Created" />
-    <option name="LAST_COMMIT_MESSAGE" value="Laravel - Created" />
+    <MESSAGE value="installed php packages" />
+    <MESSAGE value="created composer.lock" />
+    <MESSAGE value="installed frontend packages" />
+    <MESSAGE value="small changes" />
+    <MESSAGE value="edited gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="edited gitignore" />
   </component>
   <component name="WindowStateProjectService">
     <state x="352" y="63" key="SettingsEditor" timestamp="1607057826623">
       <screen x="0" y="23" width="1920" height="977" />
     </state>
     <state x="352" y="63" key="SettingsEditor/0.23.1920.977@0.23.1920.977" timestamp="1607057826623" />
-    <state x="460" y="173" key="Vcs.Push.Dialog.v2" timestamp="1607057848166">
+    <state x="460" y="173" key="Vcs.Push.Dialog.v2" timestamp="1607065242405">
       <screen x="0" y="23" width="1920" height="977" />
     </state>
-    <state x="460" y="173" key="Vcs.Push.Dialog.v2/0.23.1920.977@0.23.1920.977" timestamp="1607057848166" />
+    <state x="460" y="173" key="Vcs.Push.Dialog.v2/0.23.1920.977@0.23.1920.977" timestamp="1607065242405" />
+    <state x="460" y="173" key="Vcs.Push.Dialog.v2/0.23.1920.979@0.23.1920.979" timestamp="1607064227911" />
+    <state x="541" y="23" width="838" height="1032" key="search.everywhere.popup" timestamp="1607065200083">
+      <screen x="0" y="23" width="1920" height="977" />
+    </state>
+    <state x="541" y="23" width="838" height="1032" key="search.everywhere.popup/0.23.1920.977@0.23.1920.977" timestamp="1607065200083" />
   </component>
 </project>

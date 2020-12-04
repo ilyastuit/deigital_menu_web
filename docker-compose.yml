@@ -1,0 +1,13 @@
+version: "3"
+services:
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./storage/docker/mysql:/var/lib/mysql
+    environment:
+      - "MYSQL_ROOT_PASSWORD=root"
+      - "MYSQL_USER=root"
+      - "MYSQL_PASSWORD=root"
+      - "MYSQL_DATABASE=qrcode"
+    ports:
+      - "33061:3306"

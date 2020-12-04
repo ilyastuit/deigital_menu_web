@@ -1,16 +1,10 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('/', 'FrontEndController@index')->name('front');
+Route::get('/'.env('URL_ROUTE','restaurant').'/{alias}', 'FrontEndController@restorant')->name('vendor');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::post('/search/location', 'FrontEndController@getCurrentLocation')->name('search.location');
+
+Auth::routes(['register' => !config('app.isqrsaas')]);
+
+Route::get('/home', 'HomeController@index')->name('home');

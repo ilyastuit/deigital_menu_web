@@ -8,3 +8,4 @@ Route::post('/search/location', 'FrontEndController@getCurrentLocation')->name('
 Auth::routes(['register' => !config('app.isqrsaas')]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+

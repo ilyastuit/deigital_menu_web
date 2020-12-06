@@ -47,3 +47,7 @@ Route::get('/new/restaurant/register', 'RestorantController@showRegisterRestaura
 Route::post('/new/restaurant/register/store', 'RestorantController@storeRegisterRestaurant')->name('newrestaurant.store');
 
 Route::get('/get/rlocation/{restorant}', 'RestorantController@getLocation');
+
+
+Route::post('/feedback/{restaurant}', 'RestorantController@feedback');
+Route::get('/feedbacks', 'FeedbackController@index')->name('feedbacks');

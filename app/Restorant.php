@@ -44,4 +44,45 @@ class Restorant extends MyModel
     {
         return $this->hasOne('App\Hours','restorant_id','id');
     }
+
+    public function toArray() {
+        $data = [
+            'id' => $this->id,
+            'name' => $this->name,
+            'description' => $this->description,
+            'address' => $this->address,
+        ];
+
+        if ($categories = $this->categories) {
+            $data['categories'] = [];
+            foreach ($categories as $category) {
+                if ($items = $category->items) {
+                    $itemsData = [];
+                    foreach ($items as $item) {
+                        $itemsData[] = [
+                            'id' => $item->id,
+                            'name' => $item->name,
+                            'description' => $item->description,
+                            'price' => $item->price,
+                            'available' => $item->available,
+                            'image' => $item->getApiImage()
+                        ];
+                    }
+                    $data['categories'][] =[
+                        'id' => $category->id,
+                        'name' => $category->name,
+                        'items' => $itemsData
+                    ];
+                } else {
+                    $data['categories'][] =[
+                        'id' => $category->id,
+                        'name' => $category->name
+                    ];
+                }
+            }
+        } else {
+            $data['categories'] = null;
+        }
+        return $data;
+    }
 }

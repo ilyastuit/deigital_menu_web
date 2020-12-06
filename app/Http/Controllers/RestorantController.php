@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Feedback;
 use App\Restorant;
 use App\User;
 use App\Hours;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -329,5 +331,21 @@ class RestorantController extends Controller
     {
         $this->makeRestaurantActive($restaurant);
         return redirect()->route('admin.restaurants.index')->withStatus(__('Restaurant successfully activated.'));
+    }
+
+    public function feedback(Request $request, $restaurant) {
+        $res = Restorant::where('subdomain', $restaurant)
+            ->first();
+
+        if ($res !== null) {
+            $feedback = new Feedback();
+            $feedback->meal = (int)$request->input('meal');
+            $feedback->price = (int)$request->input('price');
+            $feedback->service = (int)$request->input('service');
+            $feedback->restorants_id = $res->id;
+            $feedback->save();
+            return new JsonResponse('ok');
+        }
+        return new JsonResponse('fail', 500);
     }
 }
